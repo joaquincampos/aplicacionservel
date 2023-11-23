@@ -18,7 +18,7 @@ m = folium.Map(location=[-35, -70], zoom_start=5)
 
 # Añadir los colegios como marcadores al mapa
 for idx, row in colegios.iterrows():
-    folium.Marker([row['LATITUD'], row['LONGITUD']], popup=row['NOMBRE']).add_to(m)
+    folium.Marker([row['LATITUD'], row['LONGITUD']], popup=row['NOM_RBD']).add_to(m)
 
 # Mostrar el mapa en la aplicación
 folium_static(m)
