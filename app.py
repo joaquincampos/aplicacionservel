@@ -16,11 +16,24 @@ st.write(colegios.head())
 # Crear un mapa centrado en Chile
 m = folium.Map(location=[-35, -70], zoom_start=5)
 
-# Añadir los colegios como marcadores al mapa
+# Añadir los colegios como círculos al mapa
 for idx, row in colegios.iterrows():
-    folium.Marker([row['LATITUD'], row['LONGITUD']], popup=row['NOM_RBD']).add_to(m)
+    # Asegúrate de usar el nombre correcto de la columna
+    folium.CircleMarker(
+        location=[row['LATITUD'], row['LONGITUD']],
+        radius=2,  # Tamaño del círculo
+        color='red',  # Color del círculo
+        fill=True,
+        fill_color='red'  # Relleno del círculo
+    ).add_to(m)
 
 # Mostrar el mapa en la aplicación
 folium_static(m)
+
+
+
+
+
+
 
     
